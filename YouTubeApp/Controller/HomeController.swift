@@ -10,11 +10,7 @@ import UIKit
 
 class HomeController: UICollectionViewController {
     
-//    let navTitleLabel: UILabel = {
-//        let label = UILabel()
-//        label.frame = CGRect(x: 0, y: 0, width: UIView().frame.width - 32, height: UIView().frame.height)
-//        return label
-//    }()
+    private let menuBarView = MenuBar()
     
     
     //MARK: - Override methods:
@@ -39,6 +35,16 @@ class HomeController: UICollectionViewController {
         
         collectionView.register(VideoCell.self,
                                 forCellWithReuseIdentifier: "Cell")
+        
+        setupMenuBar()
+    }
+    
+    private func setupMenuBar() {
+        view.addSubview(menuBarView)
+        view.addConstraintsWithFormat(format: "H:|[v0]|",
+                                      views: [menuBarView])
+        view.addConstraintsWithFormat(format: "V:|[v0(50)]",
+        views: [menuBarView])
     }
     
     override func collectionView(

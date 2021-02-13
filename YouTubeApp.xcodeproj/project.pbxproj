@@ -14,6 +14,8 @@
 		ACE1A4E125AEF0DA008806CF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACE1A4DF25AEF0DA008806CF /* LaunchScreen.storyboard */; };
 		ACE1A4E925AEFA27008806CF /* VideoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE1A4E825AEFA27008806CF /* VideoCell.swift */; };
 		ACE1A4ED25AF1DE5008806CF /* UIView +.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE1A4EC25AF1DE5008806CF /* UIView +.swift */; };
+		ACFBB6F225B4DE5B008FFB70 /* UIColor + .swift in Sources */ = {isa = PBXBuildFile; fileRef = ACFBB6F125B4DE5B008FFB70 /* UIColor + .swift */; };
+		ACFBB6F825B4E4BF008FFB70 /* MenuBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACFBB6F725B4E4BF008FFB70 /* MenuBar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,8 @@
 		ACE1A4E225AEF0DA008806CF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ACE1A4E825AEFA27008806CF /* VideoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCell.swift; sourceTree = "<group>"; };
 		ACE1A4EC25AF1DE5008806CF /* UIView +.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView +.swift"; sourceTree = "<group>"; };
+		ACFBB6F125B4DE5B008FFB70 /* UIColor + .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor + .swift"; sourceTree = "<group>"; };
+		ACFBB6F725B4E4BF008FFB70 /* MenuBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,14 +62,14 @@
 		ACE1A4D325AEF0D3008806CF /* YouTubeApp */ = {
 			isa = PBXGroup;
 			children = (
-				ACE1A4EA25AF1DD4008806CF /* Extensions */,
 				ACE1A4D425AEF0D3008806CF /* AppDelegate.swift */,
-				ACE1A4D825AEF0D3008806CF /* HomeController.swift */,
-				ACE1A4E825AEFA27008806CF /* VideoCell.swift */,
-				ACE1A4DA25AEF0D3008806CF /* Main.storyboard */,
 				ACE1A4DD25AEF0DA008806CF /* Assets.xcassets */,
-				ACE1A4DF25AEF0DA008806CF /* LaunchScreen.storyboard */,
 				ACE1A4E225AEF0DA008806CF /* Info.plist */,
+				ACE1A4EA25AF1DD4008806CF /* Extensions */,
+				ACFBB6F325B4E145008FFB70 /* View */,
+				ACFBB6F625B4E245008FFB70 /* Controller */,
+				ACE1A4DA25AEF0D3008806CF /* Main.storyboard */,
+				ACE1A4DF25AEF0DA008806CF /* LaunchScreen.storyboard */,
 			);
 			path = YouTubeApp;
 			sourceTree = "<group>";
@@ -82,8 +86,34 @@
 			isa = PBXGroup;
 			children = (
 				ACE1A4EC25AF1DE5008806CF /* UIView +.swift */,
+				ACFBB6F125B4DE5B008FFB70 /* UIColor + .swift */,
 			);
 			path = UIKit;
+			sourceTree = "<group>";
+		};
+		ACFBB6F325B4E145008FFB70 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				ACFBB6F425B4E156008FFB70 /* Cells */,
+				ACFBB6F725B4E4BF008FFB70 /* MenuBar.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		ACFBB6F425B4E156008FFB70 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				ACE1A4E825AEFA27008806CF /* VideoCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		ACFBB6F625B4E245008FFB70 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				ACE1A4D825AEF0D3008806CF /* HomeController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -159,6 +189,8 @@
 			files = (
 				ACE1A4D925AEF0D3008806CF /* HomeController.swift in Sources */,
 				ACE1A4ED25AF1DE5008806CF /* UIView +.swift in Sources */,
+				ACFBB6F825B4E4BF008FFB70 /* MenuBar.swift in Sources */,
+				ACFBB6F225B4DE5B008FFB70 /* UIColor + .swift in Sources */,
 				ACE1A4D525AEF0D3008806CF /* AppDelegate.swift in Sources */,
 				ACE1A4E925AEFA27008806CF /* VideoCell.swift in Sources */,
 			);
