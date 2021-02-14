@@ -8,12 +8,12 @@
 
 import UIKit
 
-class VideoCell: UICollectionViewCell {
+class VideoCell: BaseCell {
     
     //MARK: - UI elements:
     let thumbnailImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.backgroundColor = .blue
+        //        imageView.backgroundColor = .blue
         imageView.image = UIImage(named: "jackson")
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
@@ -22,7 +22,7 @@ class VideoCell: UICollectionViewCell {
     
     let userProfileImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.backgroundColor = .green
+        //        imageView.backgroundColor = .green
         imageView.image = UIImage(named: "jacksonMini")
         imageView.contentMode = .scaleToFill
         imageView.layer.cornerRadius = 22
@@ -34,6 +34,7 @@ class VideoCell: UICollectionViewCell {
         let label = UILabel()
         //        label.backgroundColor = .purple
         label.text = "Taylor Swift - Blank Space"
+        label.numberOfLines = 0
         return label
     }()
     
@@ -56,19 +57,51 @@ class VideoCell: UICollectionViewCell {
         return view
     }()
     
-    //MARK: - Initializers:
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        setupViews()
-        setupLayouts()
+    //MARK: - Properties:
+    var video: Video? {
+        didSet {
+            titleLabel.text = video?.title
+            thumbnailImageView.image =
+                UIImage(named: video?.thumbnailImageName ?? "")
+            userProfileImageView.image =
+                UIImage(named: video?.channel?.profileImageName ?? "")
+            
+            if let chanelName = video?.channel?.name,
+               let numberOfViews = video?.numberOfViews {
+                
+                let numberFormatter = NumberFormatter()
+                numberFormatter.numberStyle = .decimal
+                let number = numberFormatter.string(from: numberOfViews)
+                let text =
+                    "\(chanelName) • \(number ?? "") • \(video?.uploadDate ?? "")"
+                subtitleTextView.text = text
+            }
+            
+            if let title = video?.title {
+                let size = CGSize(width: frame.width - 16 - 44 - 8 - 16,
+                                  height: frame.height)
+                let options =
+                    NSStringDrawingOptions.usesFontLeading.union(.usesLineFragmentOrigin)
+                let attributes =
+                    [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 14)]
+                let estimatedRect =
+                    title.boundingRect(with: size,
+                                       options: options,
+                                       attributes: attributes,
+                                       context: nil)
+                if estimatedRect.size.height > 20 {
+                    titleLabelConstraint?.constant = 44
+                } else {
+                    titleLabelConstraint?.constant = 20
+                }
+            }
+        }
     }
     
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+    private var titleLabelConstraint: NSLayoutConstraint?
     
     //MARK: - SetupViews:
-    private func setupViews() {
+    override func setupViews() {
         addSubview(thumbnailImageView)
         addSubview(userProfileImageView)
         addSubview(titleLabel)
@@ -76,7 +109,7 @@ class VideoCell: UICollectionViewCell {
         addSubview(separatorView)
     }
     
-    private func setupLayouts() {
+    override func setupLayouts() {
         
         // H: thumbnailImageView line
         addConstraintsWithFormat(format: "H:|-16-[v0]-16-|",
@@ -94,7 +127,7 @@ class VideoCell: UICollectionViewCell {
                                  views: [separatorView])
         
         // V: thumbnailImageView line
-        addConstraintsWithFormat(format: "V:|-16-[v0]-8-[v1(44)]-16-[v2(1)]|",
+        addConstraintsWithFormat(format: "V:|-16-[v0]-8-[v1(44)]-36-[v2(1)]|",
                                  views: [thumbnailImageView,
                                          userProfileImageView,
                                          separatorView])
@@ -106,13 +139,17 @@ class VideoCell: UICollectionViewCell {
             subtitleTextView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor,
                                                   constant: 4)
         ])
-        addConstraintsWithFormat(format: "V:[v0(20)]",
-                                 views: [titleLabel])
+//        titleLabelConstraint = NSLayoutConstraint(item: titleLabel,
+//                                                  attribute: .height,
+//                                                  relatedBy: .equal,
+//                                                  toItem: self,
+//                                                  attribute: .height,
+//                                                  multiplier: 0,
+//                                                  constant: 20)
+//        addConstraint(titleLabelConstraint!)
         addConstraintsWithFormat(format: "V:[v0(30)]",
                                  views: [subtitleTextView])
     }
-    
-    
 }
 
 

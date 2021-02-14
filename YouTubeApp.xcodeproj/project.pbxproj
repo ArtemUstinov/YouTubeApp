@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AC2E7BA425D9318800F8D9F3 /* MenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC2E7BA325D9318800F8D9F3 /* MenuCell.swift */; };
+		AC2E7BA725D931A700F8D9F3 /* BaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC2E7BA625D931A700F8D9F3 /* BaseCell.swift */; };
+		AC2E7BAB25D94C8700F8D9F3 /* Video.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC2E7BAA25D94C8700F8D9F3 /* Video.swift */; };
+		AC2E7BAF25D9503600F8D9F3 /* Channel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC2E7BAE25D9503600F8D9F3 /* Channel.swift */; };
 		ACE1A4D525AEF0D3008806CF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE1A4D425AEF0D3008806CF /* AppDelegate.swift */; };
 		ACE1A4D925AEF0D3008806CF /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE1A4D825AEF0D3008806CF /* HomeController.swift */; };
 		ACE1A4DC25AEF0D3008806CF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACE1A4DA25AEF0D3008806CF /* Main.storyboard */; };
@@ -19,6 +23,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AC2E7BA325D9318800F8D9F3 /* MenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCell.swift; sourceTree = "<group>"; };
+		AC2E7BA625D931A700F8D9F3 /* BaseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCell.swift; sourceTree = "<group>"; };
+		AC2E7BAA25D94C8700F8D9F3 /* Video.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Video.swift; sourceTree = "<group>"; };
+		AC2E7BAE25D9503600F8D9F3 /* Channel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Channel.swift; sourceTree = "<group>"; };
 		ACE1A4D125AEF0D3008806CF /* YouTubeApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YouTubeApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACE1A4D425AEF0D3008806CF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ACE1A4D825AEF0D3008806CF /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
@@ -43,6 +51,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AC2E7BA025D9314900F8D9F3 /* MenuBar */ = {
+			isa = PBXGroup;
+			children = (
+				AC2E7BA125D9316800F8D9F3 /* MenuCell */,
+				ACFBB6F725B4E4BF008FFB70 /* MenuBar.swift */,
+			);
+			path = MenuBar;
+			sourceTree = "<group>";
+		};
+		AC2E7BA125D9316800F8D9F3 /* MenuCell */ = {
+			isa = PBXGroup;
+			children = (
+				AC2E7BA325D9318800F8D9F3 /* MenuCell.swift */,
+			);
+			path = MenuCell;
+			sourceTree = "<group>";
+		};
+		AC2E7BA925D94C7500F8D9F3 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				AC2E7BAA25D94C8700F8D9F3 /* Video.swift */,
+				AC2E7BAE25D9503600F8D9F3 /* Channel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		ACE1A4C825AEF0D3008806CF = {
 			isa = PBXGroup;
 			children = (
@@ -65,9 +99,9 @@
 				ACE1A4D425AEF0D3008806CF /* AppDelegate.swift */,
 				ACE1A4DD25AEF0DA008806CF /* Assets.xcassets */,
 				ACE1A4E225AEF0DA008806CF /* Info.plist */,
+				AC2E7BA925D94C7500F8D9F3 /* Model */,
 				ACE1A4EA25AF1DD4008806CF /* Extensions */,
-				ACFBB6F325B4E145008FFB70 /* View */,
-				ACFBB6F625B4E245008FFB70 /* Controller */,
+				ACFBB6F325B4E145008FFB70 /* Main screen */,
 				ACE1A4DA25AEF0D3008806CF /* Main.storyboard */,
 				ACE1A4DF25AEF0DA008806CF /* LaunchScreen.storyboard */,
 			);
@@ -91,29 +125,23 @@
 			path = UIKit;
 			sourceTree = "<group>";
 		};
-		ACFBB6F325B4E145008FFB70 /* View */ = {
+		ACFBB6F325B4E145008FFB70 /* Main screen */ = {
 			isa = PBXGroup;
 			children = (
-				ACFBB6F425B4E156008FFB70 /* Cells */,
-				ACFBB6F725B4E4BF008FFB70 /* MenuBar.swift */,
+				AC2E7BA025D9314900F8D9F3 /* MenuBar */,
+				ACFBB6F425B4E156008FFB70 /* VideoCell */,
+				ACE1A4D825AEF0D3008806CF /* HomeController.swift */,
+				AC2E7BA625D931A700F8D9F3 /* BaseCell.swift */,
 			);
-			path = View;
+			path = "Main screen";
 			sourceTree = "<group>";
 		};
-		ACFBB6F425B4E156008FFB70 /* Cells */ = {
+		ACFBB6F425B4E156008FFB70 /* VideoCell */ = {
 			isa = PBXGroup;
 			children = (
 				ACE1A4E825AEFA27008806CF /* VideoCell.swift */,
 			);
-			path = Cells;
-			sourceTree = "<group>";
-		};
-		ACFBB6F625B4E245008FFB70 /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				ACE1A4D825AEF0D3008806CF /* HomeController.swift */,
-			);
-			path = Controller;
+			path = VideoCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -143,7 +171,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1150;
-				LastUpgradeCheck = 1150;
+				LastUpgradeCheck = 1240;
 				ORGANIZATIONNAME = "Artem Ustinov";
 				TargetAttributes = {
 					ACE1A4D025AEF0D3008806CF = {
@@ -187,9 +215,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC2E7BA425D9318800F8D9F3 /* MenuCell.swift in Sources */,
+				AC2E7BAF25D9503600F8D9F3 /* Channel.swift in Sources */,
 				ACE1A4D925AEF0D3008806CF /* HomeController.swift in Sources */,
 				ACE1A4ED25AF1DE5008806CF /* UIView +.swift in Sources */,
 				ACFBB6F825B4E4BF008FFB70 /* MenuBar.swift in Sources */,
+				AC2E7BAB25D94C8700F8D9F3 /* Video.swift in Sources */,
+				AC2E7BA725D931A700F8D9F3 /* BaseCell.swift in Sources */,
 				ACFBB6F225B4DE5B008FFB70 /* UIColor + .swift in Sources */,
 				ACE1A4D525AEF0D3008806CF /* AppDelegate.swift in Sources */,
 				ACE1A4E925AEFA27008806CF /* VideoCell.swift in Sources */,
@@ -244,6 +276,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -304,6 +337,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
