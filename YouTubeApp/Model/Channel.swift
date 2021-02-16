@@ -7,6 +7,11 @@
 //
 
 struct Channel {
-    let name: String?
-    let profileImageName: String?
+    var name: String?
+    var profileImageName: String?
+    
+    init(name: String? = nil, profileImageName: String? = nil) {
+        self.name = name
+        self.profileImageName = profileImageName
+    }
 }

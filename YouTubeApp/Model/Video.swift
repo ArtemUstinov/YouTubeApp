@@ -9,10 +9,18 @@
 import Foundation
 
 struct Video {
-    let title: String?
-    let thumbnailImageName: String?
+    var title: String?
+    var thumbnailImageName: String?
     let numberOfViews: NSNumber?
     let uploadDate: String?  // After change to Date!!!
     
-    let channel: Channel?
+    var channel: Channel?
+    
+    init(title: String? = nil, thumbnailImageName: String? = nil, numberOfViews: NSNumber? = nil, uploadDate: String? = nil, channel: Channel? = nil) {
+        self.title = title
+        self.thumbnailImageName = thumbnailImageName
+        self.numberOfViews = numberOfViews
+        self.uploadDate = uploadDate
+        self.channel = channel
+    }
 }

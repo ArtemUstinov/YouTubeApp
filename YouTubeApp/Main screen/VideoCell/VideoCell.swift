@@ -11,20 +11,20 @@ import UIKit
 class VideoCell: BaseCell {
     
     //MARK: - UI elements:
-    let thumbnailImageView: UIImageView = {
-        let imageView = UIImageView()
+    let thumbnailImageView: CustomImageView = {
+        let imageView = CustomImageView()
         //        imageView.backgroundColor = .blue
-        imageView.image = UIImage(named: "jackson")
+//        imageView.image = UIImage(named: "jackson")
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
         return imageView
     }()
     
-    let userProfileImageView: UIImageView = {
-        let imageView = UIImageView()
+    let userProfileImageView: CustomImageView = {
+        let imageView = CustomImageView()
         //        imageView.backgroundColor = .green
-        imageView.image = UIImage(named: "jacksonMini")
-        imageView.contentMode = .scaleToFill
+//        imageView.image = UIImage(named: "jacksonMini")
+        imageView.contentMode = .scaleAspectFill
         imageView.layer.cornerRadius = 22
         imageView.layer.masksToBounds = true
         return imageView
@@ -61,10 +61,9 @@ class VideoCell: BaseCell {
     var video: Video? {
         didSet {
             titleLabel.text = video?.title
-            thumbnailImageView.image =
-                UIImage(named: video?.thumbnailImageName ?? "")
-            userProfileImageView.image =
-                UIImage(named: video?.channel?.profileImageName ?? "")
+
+            thumbnailImageView.loadImage(from: video?.thumbnailImageName ?? "")
+            userProfileImageView.loadImage(from: video?.channel?.profileImageName ?? "")
             
             if let chanelName = video?.channel?.name,
                let numberOfViews = video?.numberOfViews {
@@ -99,6 +98,13 @@ class VideoCell: BaseCell {
     }
     
     private var titleLabelConstraint: NSLayoutConstraint?
+    
+    override func prepareForReuse() {
+        thumbnailImageView.image = nil
+        userProfileImageView.image = nil
+        titleLabel.text = nil
+        subtitleTextView.text = nil
+    }
     
     //MARK: - SetupViews:
     override func setupViews() {

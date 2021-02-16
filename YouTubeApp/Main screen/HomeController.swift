@@ -12,27 +12,30 @@ class HomeController: UICollectionViewController {
     
     private let menuBarView = MenuBar()
     
-    private let videos: [Video] = {
-        let kanyeChannel =
-            Channel(name: "KanyeIsTheBestChannel",
-                    profileImageName: "kanye_profile")
-        
-        let blankSpaceVideo =
-            Video(title: "Taylor Swift - Blank Space",
-                  thumbnailImageName: "taylor_swift_blank_space",
-                  numberOfViews: 653453455,
-                  uploadDate: "2 years ago",
-                  channel: kanyeChannel
-                  )
-        let badBloodVideo =
-            Video(title: "Taylor Swift - Bad Blood featuring Kendrick Lamar",
-                  thumbnailImageName: "taylor_swift_bad_blood",
-                  numberOfViews: 54023414234,
-                  uploadDate: "1 years ago",
-                  channel: kanyeChannel)
-        return [blankSpaceVideo, badBloodVideo]
-    }()
+    //    private let videos: [Video] = {
+    //        let kanyeChannel =
+    //            Channel(name: "KanyeIsTheBestChannel",
+    //                    profileImageName: "kanye_profile")
+    //
+    //        let blankSpaceVideo =
+    //            Video(title: "Taylor Swift - Blank Space",
+    //                  thumbnailImageName: "taylor_swift_blank_space",
+    //                  numberOfViews: 653453455,
+    //                  uploadDate: "2 years ago",
+    //                  channel: kanyeChannel
+    //                  )
+    //        let badBloodVideo =
+    //            Video(title: "Taylor Swift - Bad Blood featuring Kendrick Lamar",
+    //                  thumbnailImageName: "taylor_swift_bad_blood",
+    //                  numberOfViews: 54023414234,
+    //                  uploadDate: "1 years ago",
+    //                  channel: kanyeChannel)
+    //        return [blankSpaceVideo, badBloodVideo]
+    //    }()
     
+    private var videos = [Video]()
+    
+    private let networkManager = NetworkManager()
     
     //MARK: - Override methods:
     override func viewDidLoad() {
@@ -68,6 +71,36 @@ class HomeController: UICollectionViewController {
         
         setupMenuBar()
         setupNavBar()
+        
+        fetchDataVideo()
+    }
+    
+    private func fetchDataVideo() {
+        networkManager.fetchVideo {
+            [weak self] jsonData in
+            var channel = Channel()
+            var video = Video()
+            
+            for dictionary in jsonData as! [[String: AnyObject]] {
+                
+                video.title = dictionary["title"] as? String
+                video.thumbnailImageName =
+                    dictionary["thumbnail_image_name"] as? String
+                
+                let dictionaryChannel =
+                    dictionary["channel"] as? [String: AnyObject]
+                
+                channel.profileImageName =
+                    dictionaryChannel?["profile_image_name"] as? String
+                channel.name = dictionaryChannel?["name"] as? String
+                
+                video.channel = channel
+                self?.videos.append(video)
+            }
+            DispatchQueue.main.async {
+                self?.collectionView.reloadData()
+            }
+        }
     }
     
     private func setupMenuBar() {
@@ -86,9 +119,9 @@ class HomeController: UICollectionViewController {
                                            action: #selector(searchHandle))
         let more = UIImage(named: "nav_more_icon")?.withRenderingMode(.alwaysOriginal)
         let moreButton = UIBarButtonItem(image: more,
-                                           style: .plain,
-                                           target: self,
-                                           action: #selector(moreHandle))
+                                         style: .plain,
+                                         target: self,
+                                         action: #selector(moreHandle))
         navigationItem.rightBarButtonItems = [moreButton, searchButton]
     }
     
@@ -113,10 +146,10 @@ class HomeController: UICollectionViewController {
     ) -> UICollectionViewCell {
         
         guard let cell =
-            collectionView.dequeueReusableCell(
-                withReuseIdentifier: "Cell",
-                for: indexPath
-            ) as? VideoCell else {
+                collectionView.dequeueReusableCell(
+                    withReuseIdentifier: "Cell",
+                    for: indexPath
+                ) as? VideoCell else {
             fatalError("Don't have 'VideoCell'")
         }
         cell.video = videos[indexPath.item]

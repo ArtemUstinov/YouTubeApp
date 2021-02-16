@@ -11,6 +11,9 @@
 		AC2E7BA725D931A700F8D9F3 /* BaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC2E7BA625D931A700F8D9F3 /* BaseCell.swift */; };
 		AC2E7BAB25D94C8700F8D9F3 /* Video.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC2E7BAA25D94C8700F8D9F3 /* Video.swift */; };
 		AC2E7BAF25D9503600F8D9F3 /* Channel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC2E7BAE25D9503600F8D9F3 /* Channel.swift */; };
+		AC4A73A925DC563D0053409D /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4A73A825DC563D0053409D /* NetworkManager.swift */; };
+		AC9B4BAE25DC217100714D3F /* CustomImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9B4BAD25DC217100714D3F /* CustomImageView.swift */; };
+		ACD6A5D025DC28CB0097481C /* CustomImageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD6A5CF25DC28CB0097481C /* CustomImageViewModel.swift */; };
 		ACE1A4D525AEF0D3008806CF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE1A4D425AEF0D3008806CF /* AppDelegate.swift */; };
 		ACE1A4D925AEF0D3008806CF /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE1A4D825AEF0D3008806CF /* HomeController.swift */; };
 		ACE1A4DC25AEF0D3008806CF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACE1A4DA25AEF0D3008806CF /* Main.storyboard */; };
@@ -27,6 +30,9 @@
 		AC2E7BA625D931A700F8D9F3 /* BaseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCell.swift; sourceTree = "<group>"; };
 		AC2E7BAA25D94C8700F8D9F3 /* Video.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Video.swift; sourceTree = "<group>"; };
 		AC2E7BAE25D9503600F8D9F3 /* Channel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Channel.swift; sourceTree = "<group>"; };
+		AC4A73A825DC563D0053409D /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		AC9B4BAD25DC217100714D3F /* CustomImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImageView.swift; sourceTree = "<group>"; };
+		ACD6A5CF25DC28CB0097481C /* CustomImageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImageViewModel.swift; sourceTree = "<group>"; };
 		ACE1A4D125AEF0D3008806CF /* YouTubeApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YouTubeApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACE1A4D425AEF0D3008806CF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ACE1A4D825AEF0D3008806CF /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
@@ -77,6 +83,22 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		AC65083E25DC1C8400383CA7 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				AC65083F25DC1C9A00383CA7 /* Network */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		AC65083F25DC1C9A00383CA7 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				AC4A73A825DC563D0053409D /* NetworkManager.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
 		ACE1A4C825AEF0D3008806CF = {
 			isa = PBXGroup;
 			children = (
@@ -100,6 +122,7 @@
 				ACE1A4DD25AEF0DA008806CF /* Assets.xcassets */,
 				ACE1A4E225AEF0DA008806CF /* Info.plist */,
 				AC2E7BA925D94C7500F8D9F3 /* Model */,
+				AC65083E25DC1C8400383CA7 /* Service */,
 				ACE1A4EA25AF1DD4008806CF /* Extensions */,
 				ACFBB6F325B4E145008FFB70 /* Main screen */,
 				ACE1A4DA25AEF0D3008806CF /* Main.storyboard */,
@@ -121,6 +144,8 @@
 			children = (
 				ACE1A4EC25AF1DE5008806CF /* UIView +.swift */,
 				ACFBB6F125B4DE5B008FFB70 /* UIColor + .swift */,
+				AC9B4BAD25DC217100714D3F /* CustomImageView.swift */,
+				ACD6A5CF25DC28CB0097481C /* CustomImageViewModel.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -215,8 +240,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC4A73A925DC563D0053409D /* NetworkManager.swift in Sources */,
 				AC2E7BA425D9318800F8D9F3 /* MenuCell.swift in Sources */,
 				AC2E7BAF25D9503600F8D9F3 /* Channel.swift in Sources */,
+				AC9B4BAE25DC217100714D3F /* CustomImageView.swift in Sources */,
 				ACE1A4D925AEF0D3008806CF /* HomeController.swift in Sources */,
 				ACE1A4ED25AF1DE5008806CF /* UIView +.swift in Sources */,
 				ACFBB6F825B4E4BF008FFB70 /* MenuBar.swift in Sources */,
@@ -224,6 +251,7 @@
 				AC2E7BA725D931A700F8D9F3 /* BaseCell.swift in Sources */,
 				ACFBB6F225B4DE5B008FFB70 /* UIColor + .swift in Sources */,
 				ACE1A4D525AEF0D3008806CF /* AppDelegate.swift in Sources */,
+				ACD6A5D025DC28CB0097481C /* CustomImageViewModel.swift in Sources */,
 				ACE1A4E925AEFA27008806CF /* VideoCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
