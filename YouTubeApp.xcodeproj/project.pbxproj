@@ -12,6 +12,7 @@
 		AC2E7BAB25D94C8700F8D9F3 /* Video.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC2E7BAA25D94C8700F8D9F3 /* Video.swift */; };
 		AC2E7BAF25D9503600F8D9F3 /* Channel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC2E7BAE25D9503600F8D9F3 /* Channel.swift */; };
 		AC4A73A925DC563D0053409D /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4A73A825DC563D0053409D /* NetworkManager.swift */; };
+		AC8FB3E525DD2C5200F7B795 /* SettingsLauncher.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC8FB3E425DD2C5200F7B795 /* SettingsLauncher.swift */; };
 		AC9B4BAE25DC217100714D3F /* CustomImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9B4BAD25DC217100714D3F /* CustomImageView.swift */; };
 		ACD6A5D025DC28CB0097481C /* CustomImageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD6A5CF25DC28CB0097481C /* CustomImageViewModel.swift */; };
 		ACE1A4D525AEF0D3008806CF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE1A4D425AEF0D3008806CF /* AppDelegate.swift */; };
@@ -31,6 +32,7 @@
 		AC2E7BAA25D94C8700F8D9F3 /* Video.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Video.swift; sourceTree = "<group>"; };
 		AC2E7BAE25D9503600F8D9F3 /* Channel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Channel.swift; sourceTree = "<group>"; };
 		AC4A73A825DC563D0053409D /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		AC8FB3E425DD2C5200F7B795 /* SettingsLauncher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsLauncher.swift; sourceTree = "<group>"; };
 		AC9B4BAD25DC217100714D3F /* CustomImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImageView.swift; sourceTree = "<group>"; };
 		ACD6A5CF25DC28CB0097481C /* CustomImageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImageViewModel.swift; sourceTree = "<group>"; };
 		ACE1A4D125AEF0D3008806CF /* YouTubeApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YouTubeApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -157,6 +159,7 @@
 				ACFBB6F425B4E156008FFB70 /* VideoCell */,
 				ACE1A4D825AEF0D3008806CF /* HomeController.swift */,
 				AC2E7BA625D931A700F8D9F3 /* BaseCell.swift */,
+				AC8FB3E425DD2C5200F7B795 /* SettingsLauncher.swift */,
 			);
 			path = "Main screen";
 			sourceTree = "<group>";
@@ -250,6 +253,7 @@
 				AC2E7BAB25D94C8700F8D9F3 /* Video.swift in Sources */,
 				AC2E7BA725D931A700F8D9F3 /* BaseCell.swift in Sources */,
 				ACFBB6F225B4DE5B008FFB70 /* UIColor + .swift in Sources */,
+				AC8FB3E525DD2C5200F7B795 /* SettingsLauncher.swift in Sources */,
 				ACE1A4D525AEF0D3008806CF /* AppDelegate.swift in Sources */,
 				ACD6A5D025DC28CB0097481C /* CustomImageViewModel.swift in Sources */,
 				ACE1A4E925AEFA27008806CF /* VideoCell.swift in Sources */,

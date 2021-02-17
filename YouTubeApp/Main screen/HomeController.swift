@@ -37,6 +37,8 @@ class HomeController: UICollectionViewController {
     
     private let networkManager = NetworkManager()
     
+    private let settingsLauncher = SettingsLauncher()
+    
     //MARK: - Override methods:
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -130,7 +132,7 @@ class HomeController: UICollectionViewController {
     }
     
     @objc private func moreHandle() {
-        print(321)
+        settingsLauncher.showSettings()
     }
     
     override func collectionView(
