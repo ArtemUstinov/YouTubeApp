@@ -37,7 +37,11 @@ class HomeController: UICollectionViewController {
     
     private let networkManager = NetworkManager()
     
-    private let settingsLauncher = SettingsLauncher()
+    private lazy var settingsLauncher: SettingsLauncher = {
+        let launcher = SettingsLauncher()
+        launcher.homeController = self
+        return launcher
+    }()
     
     //MARK: - Override methods:
     override func viewDidLoad() {
@@ -125,6 +129,17 @@ class HomeController: UICollectionViewController {
                                          target: self,
                                          action: #selector(moreHandle))
         navigationItem.rightBarButtonItems = [moreButton, searchButton]
+    }
+    
+    func showControllerForSettings(_ setting: Setting) {
+        let dummySettingsVC = UIViewController()
+        dummySettingsVC.view.backgroundColor = .white
+        dummySettingsVC.title = setting.name
+        navigationController?.navigationBar.tintColor = .white
+        navigationController?.navigationBar.titleTextAttributes =
+            [NSAttributedString.Key.foregroundColor: UIColor.white]
+        navigationController?.pushViewController(dummySettingsVC,
+                                                 animated: true)
     }
     
     @objc private func searchHandle() {
