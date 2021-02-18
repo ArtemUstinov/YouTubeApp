@@ -25,12 +25,12 @@ class SettingsLauncher: NSObject {
     private let cellHeight: CGFloat = 50
     
     private let settings = [
-        Setting(name: "Settings", imageName: "settings"),
-        Setting(name: "Terms & privacy policy", imageName: "privacy"),
-        Setting(name: "Send Feedback", imageName: "feedback"),
-        Setting(name: "Help", imageName: "help"),
-        Setting(name: "Switch account", imageName: "switch_account"),
-        Setting(name: "Cancel", imageName: "cancel")
+        Setting(name: .settings, imageName: "settings"),
+        Setting(name: .termsPrivacy, imageName: "privacy"),
+        Setting(name: .sendFeedback, imageName: "feedback"),
+        Setting(name: .help, imageName: "help"),
+        Setting(name: .switchAccount, imageName: "switch_account"),
+        Setting(name: .cancel, imageName: "cancel")
     ]
     
     var homeController: HomeController?
@@ -89,16 +89,16 @@ class SettingsLauncher: NSObject {
     
     //MARK: - @objs methods:
     @objc private func handleDismiss(setting: Setting) {
-//        UIView.animate(withDuration: 0.5) {
-//            self.blackView.alpha = 0
-//            if let window = UIApplication.shared.windows.filter({$0.isKeyWindow}).first {
-//                self.collectionView.frame =
-//                    CGRect(x: 0,
-//                           y: window.frame.height,
-//                           width: self.collectionView.frame.width,
-//                           height: self.collectionView.frame.height)
-//            }
-//        }
+        //        UIView.animate(withDuration: 0.5) {
+        //            self.blackView.alpha = 0
+        //            if let window = UIApplication.shared.windows.filter({$0.isKeyWindow}).first {
+        //                self.collectionView.frame =
+        //                    CGRect(x: 0,
+        //                           y: window.frame.height,
+        //                           width: self.collectionView.frame.width,
+        //                           height: self.collectionView.frame.height)
+        //            }
+        //        }
         
         UIView.animate(withDuration: 0.5,
                        delay: 0,
@@ -116,10 +116,10 @@ class SettingsLauncher: NSObject {
                            height: self.collectionView.frame.height)
             }
         } completion: { (isCompleted) in
-//            if setting.name != "" {
-            print("!")
+            if !setting.isKind(of: UITapGestureRecognizer.self)
+                && setting.name != .cancel {
                 self.homeController?.showControllerForSettings(setting)
-//            }
+            }
         }
     }
 }
@@ -161,6 +161,7 @@ extension SettingsLauncher: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
         CGSize(width: blackView.frame.width, height: cellHeight)
     }
 }

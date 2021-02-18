@@ -11,8 +11,8 @@ import Foundation
 struct Video {
     var title: String?
     var thumbnailImageName: String?
-    let numberOfViews: NSNumber?
-    let uploadDate: String?  // After change to Date!!!
+    var numberOfViews: NSNumber?
+    var uploadDate: String?  // After change to Date!!!
     
     var channel: Channel?
     

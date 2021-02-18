@@ -11,7 +11,7 @@ import UIKit
 class MenuBar: UIView {
     
     //MARK: - UI elements:
-    private lazy var collectionView: UICollectionView = {
+    lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         let cv = UICollectionView(frame: .zero,
                                   collectionViewLayout: layout)
@@ -27,6 +27,10 @@ class MenuBar: UIView {
     private let cellId = "cellId"
     private let images = ["home", "trending", "subscriptions", "account"]
     
+    var homeController: HomeController?
+    
+    var horizontalBarLeadingAnchorConstraint: NSLayoutConstraint?
+    
     //MARK: - Initializers:
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -36,9 +40,30 @@ class MenuBar: UIView {
         collectionView.selectItem(at: selectedIndexPath,
                                   animated: false,
                                   scrollPosition: .left)
+        setupHorizontalBar()
     }
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    private func setupHorizontalBar() {
+        let horizontalBarView = UIView()
+        horizontalBarView.backgroundColor = UIColor(white: 0.95, alpha: 1)
+        horizontalBarView.translatesAutoresizingMaskIntoConstraints = false
+        
+        addSubview(horizontalBarView)
+        
+        horizontalBarLeadingAnchorConstraint =
+            horizontalBarView.leadingAnchor.constraint(equalTo: self.leadingAnchor)
+        horizontalBarLeadingAnchorConstraint?.isActive = true
+        
+        NSLayoutConstraint.activate([
+            horizontalBarView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
+            
+            horizontalBarView.widthAnchor.constraint(equalTo: self.widthAnchor,
+                                                     multiplier: 1 / 4),
+            horizontalBarView.heightAnchor.constraint(equalToConstant: 4)
+        ])
     }
     
     //MARK: - Setup CollectionView:
@@ -76,6 +101,24 @@ extension MenuBar: UICollectionViewDelegate,
             UIImage(named: images[indexPath.item])?.withRenderingMode(.alwaysTemplate)
         
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView,
+                        didSelectItemAt indexPath: IndexPath) {
+//        let x = CGFloat(indexPath.item) * frame.width / 4
+//        print(x)
+//        horizontalBarLeadingAnchorConstraint?.constant = x
+        
+//        UIView.animate(withDuration: 0.75,
+//                       delay: 0,
+//                       usingSpringWithDamping: 1,
+//                       initialSpringVelocity: 1,
+//                       options: .curveEaseOut,
+//                       animations: {
+//                        self.layoutIfNeeded()
+//                       }, completion: nil)
+        
+        homeController?.scrollToMenuIndex(indexPath.item)
     }
 }
 
