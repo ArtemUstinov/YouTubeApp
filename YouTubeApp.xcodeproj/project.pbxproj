@@ -11,6 +11,8 @@
 		AC2E7BA725D931A700F8D9F3 /* BaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC2E7BA625D931A700F8D9F3 /* BaseCell.swift */; };
 		AC2E7BAB25D94C8700F8D9F3 /* Video.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC2E7BAA25D94C8700F8D9F3 /* Video.swift */; };
 		AC2E7BAF25D9503600F8D9F3 /* Channel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC2E7BAE25D9503600F8D9F3 /* Channel.swift */; };
+		AC395E3125DFDF87007438F8 /* TrendingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC395E3025DFDF87007438F8 /* TrendingCell.swift */; };
+		AC395E3425DFEF9C007438F8 /* SubcriptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC395E3325DFEF9C007438F8 /* SubcriptionCell.swift */; };
 		AC4A73A925DC563D0053409D /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4A73A825DC563D0053409D /* NetworkManager.swift */; };
 		AC81695425DFB25E00971B6F /* FeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC81695325DFB25E00971B6F /* FeedCell.swift */; };
 		AC8FB3E525DD2C5200F7B795 /* SettingsLauncher.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC8FB3E425DD2C5200F7B795 /* SettingsLauncher.swift */; };
@@ -34,6 +36,8 @@
 		AC2E7BA625D931A700F8D9F3 /* BaseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCell.swift; sourceTree = "<group>"; };
 		AC2E7BAA25D94C8700F8D9F3 /* Video.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Video.swift; sourceTree = "<group>"; };
 		AC2E7BAE25D9503600F8D9F3 /* Channel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Channel.swift; sourceTree = "<group>"; };
+		AC395E3025DFDF87007438F8 /* TrendingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingCell.swift; sourceTree = "<group>"; };
+		AC395E3325DFEF9C007438F8 /* SubcriptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubcriptionCell.swift; sourceTree = "<group>"; };
 		AC4A73A825DC563D0053409D /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		AC81695325DFB25E00971B6F /* FeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCell.swift; sourceTree = "<group>"; };
 		AC8FB3E425DD2C5200F7B795 /* SettingsLauncher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsLauncher.swift; sourceTree = "<group>"; };
@@ -89,6 +93,25 @@
 				AC2E7BAE25D9503600F8D9F3 /* Channel.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		AC395E2E25DFDF1D007438F8 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				AC395E2F25DFDF5F007438F8 /* Trending screen */,
+				AC81695325DFB25E00971B6F /* FeedCell.swift */,
+				ACE1A4D825AEF0D3008806CF /* HomeController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		AC395E2F25DFDF5F007438F8 /* Trending screen */ = {
+			isa = PBXGroup;
+			children = (
+				AC395E3025DFDF87007438F8 /* TrendingCell.swift */,
+				AC395E3325DFEF9C007438F8 /* SubcriptionCell.swift */,
+			);
+			path = "Trending screen";
 			sourceTree = "<group>";
 		};
 		AC65083E25DC1C8400383CA7 /* Service */ = {
@@ -187,10 +210,10 @@
 		ACFBB6F325B4E145008FFB70 /* Main screen */ = {
 			isa = PBXGroup;
 			children = (
+				AC2E7BA625D931A700F8D9F3 /* BaseCell.swift */,
+				AC395E2E25DFDF1D007438F8 /* Controller */,
 				AC2E7BA025D9314900F8D9F3 /* MenuBar */,
 				ACFBB6F425B4E156008FFB70 /* VideoCell */,
-				ACE1A4D825AEF0D3008806CF /* HomeController.swift */,
-				AC2E7BA625D931A700F8D9F3 /* BaseCell.swift */,
 				AC8FB3E725DD5BC300F7B795 /* Settings screen */,
 			);
 			path = "Main screen";
@@ -200,7 +223,6 @@
 			isa = PBXGroup;
 			children = (
 				ACE1A4E825AEFA27008806CF /* VideoCell.swift */,
-				AC81695325DFB25E00971B6F /* FeedCell.swift */,
 			);
 			path = VideoCell;
 			sourceTree = "<group>";
@@ -278,12 +300,14 @@
 			files = (
 				AC4A73A925DC563D0053409D /* NetworkManager.swift in Sources */,
 				AC2E7BA425D9318800F8D9F3 /* MenuCell.swift in Sources */,
+				AC395E3425DFEF9C007438F8 /* SubcriptionCell.swift in Sources */,
 				AC81695425DFB25E00971B6F /* FeedCell.swift in Sources */,
 				AC2E7BAF25D9503600F8D9F3 /* Channel.swift in Sources */,
 				AC9B4BAE25DC217100714D3F /* CustomImageView.swift in Sources */,
 				ACE1A4D925AEF0D3008806CF /* HomeController.swift in Sources */,
 				ACE1A4ED25AF1DE5008806CF /* UIView +.swift in Sources */,
 				AC8FB3EE25DD6F5900F7B795 /* Setting.swift in Sources */,
+				AC395E3125DFDF87007438F8 /* TrendingCell.swift in Sources */,
 				ACFBB6F825B4E4BF008FFB70 /* MenuBar.swift in Sources */,
 				AC2E7BAB25D94C8700F8D9F3 /* Video.swift in Sources */,
 				AC2E7BA725D931A700F8D9F3 /* BaseCell.swift in Sources */,

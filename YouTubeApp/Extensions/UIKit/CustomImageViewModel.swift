@@ -44,3 +44,4 @@ class CustomImageViewModel {
                                             for: urlRequest)
     }
 }
+

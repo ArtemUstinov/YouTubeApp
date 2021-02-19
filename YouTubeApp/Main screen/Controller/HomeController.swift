@@ -25,6 +25,8 @@ class HomeController: UICollectionViewController {
     }()
     
     private let cellId = "Cell id"
+    private let trendingCell = "trendingCell"
+    private let subscriptionCell = "subscriptionCell"
     private let titles = ["Home", "Trending", "Subscriptions", "Account"]
     
     //MARK: - Override methods:
@@ -111,6 +113,9 @@ class HomeController: UICollectionViewController {
         collectionView.backgroundColor = .white
         
         collectionView.register(FeedCell.self, forCellWithReuseIdentifier: cellId)
+        collectionView.register(TrendingCell.self, forCellWithReuseIdentifier: trendingCell)
+        collectionView.register(SubscriptionCell.self, forCellWithReuseIdentifier: subscriptionCell)
+
         
         collectionView.contentInset = UIEdgeInsets(top: 50,
                                                    left: 0,
@@ -178,12 +183,20 @@ extension HomeController {
         cellForItemAt indexPath: IndexPath
     ) -> UICollectionViewCell {
         
+        let identifier: String
+        
+        if indexPath.item == 0 {
+            identifier = cellId
+        } else if indexPath.item == 1 {
+            identifier = trendingCell
+        } else {
+            identifier = subscriptionCell
+        }
+ 
         let cell =
-            collectionView.dequeueReusableCell(withReuseIdentifier: cellId,
+            collectionView.dequeueReusableCell(withReuseIdentifier: identifier,
                                                for: indexPath)
-        //
-        //        let cells: [UIColor] = [.blue, .brown, .cyan, .green]
-        //        cell.backgroundColor = cells[indexPath.item]
+        
         return cell
     }
     

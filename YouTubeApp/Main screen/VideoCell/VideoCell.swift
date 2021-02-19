@@ -100,10 +100,12 @@ class VideoCell: BaseCell {
     private var titleLabelConstraint: NSLayoutConstraint?
     
     override func prepareForReuse() {
+        super.prepareForReuse()
         thumbnailImageView.image = nil
         userProfileImageView.image = nil
-        titleLabel.text = nil
-        subtitleTextView.text = nil
+//        titleLabel.text = nil
+//        subtitleTextView.text = nil
+        print("!")
     }
     
     //MARK: - SetupViews:

@@ -14,15 +14,15 @@ class CustomImageView: UIImageView {
     
     func loadImage(from urlString: String) {
         
-        if let cachedImage = customImageViewModel.getCachedImage(from: urlString) {
-            image = cachedImage
-            return
-        }
+//        if let cachedImage = customImageViewModel.getCachedImage(from: urlString) {
+//            image = cachedImage
+//            return
+//        }
         
         customImageViewModel.fetchImageData(from: urlString) {
-            imageData in
+            [weak self] imageData in
             DispatchQueue.main.async {
-                self.image = UIImage(data: imageData)
+                self?.image = UIImage(data: imageData)
             }
         }
     }

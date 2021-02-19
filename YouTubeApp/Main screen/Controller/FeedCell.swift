@@ -10,7 +10,7 @@ import UIKit
 
 class FeedCell: BaseCell {
     
-    private lazy var collectionView: UICollectionView = {
+    lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         let collectionView =
             UICollectionView(frame: .zero, collectionViewLayout: layout)
@@ -20,8 +20,8 @@ class FeedCell: BaseCell {
         return collectionView
     }()
     
-    private var videos = [Video]()
-    private let networkManager = NetworkManager()
+    var videos = [Video]()
+    let networkManager = NetworkManager()
     
     
     private let cellId = "CellId "
@@ -35,8 +35,8 @@ class FeedCell: BaseCell {
         
     }
     
-    private func fetchDataVideo() {
-        networkManager.fetchVideo {
+    func fetchDataVideo() {
+        networkManager.fetchVideo(url: .home) {
             [weak self] videos in
             self?.videos = videos
             self?.collectionView.reloadData()

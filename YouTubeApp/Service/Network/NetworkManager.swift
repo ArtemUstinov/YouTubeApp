@@ -10,12 +10,17 @@ import Foundation
 
 class NetworkManager {
     
-    private enum Api: String {
-        case youtube = "https://s3-us-west-2.amazonaws.com/youtubeassets/home.json"
+    enum Api: String {
+        case home =
+                "https://s3-us-west-2.amazonaws.com/youtubeassets/home.json"
+        case trending =
+                "https://s3-us-west-2.amazonaws.com/youtubeassets/trending.json"
+        case subscription =
+                "https://s3-us-west-2.amazonaws.com/youtubeassets/subscriptions.json"
     }
     
-    func fetchVideo(completion: @escaping([Video]) -> Void) {
-        guard let url = URL(string: Api.youtube.rawValue) else { return }
+    func fetchVideo(url: Api, completion: @escaping([Video]) -> Void) {
+        guard let url = URL(string: url.rawValue) else { return }
         
         URLSession.shared.dataTask(with: url) { (data, _, error) in
             if let error = error {
