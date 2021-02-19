@@ -6,12 +6,17 @@
 //  Copyright © 2021 Artem Ustinov. All rights reserved.
 //
 
-struct Channel {
+struct Channel: Decodable {
     var name: String?
     var profileImageName: String?
     
-    init(name: String? = nil, profileImageName: String? = nil) {
-        self.name = name
-        self.profileImageName = profileImageName
+    enum CodingKeys: String, CodingKey {
+        case name
+        case profileImageName = "profile_image_name"
     }
+    
+//    init(name: String? = nil, profileImageName: String? = nil) {
+//        self.name = name
+//        self.profileImageName = profileImageName
+//    }
 }

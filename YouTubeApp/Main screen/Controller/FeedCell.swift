@@ -23,6 +23,8 @@ class FeedCell: BaseCell {
     var videos = [Video]()
     let networkManager = NetworkManager()
     
+    var hidesStatusBar: (() -> Void)?
+    
     
     private let cellId = "CellId "
     
@@ -88,6 +90,12 @@ extension FeedCell: UICollectionViewDataSource, UICollectionViewDelegate {
         minimumLineSpacingForSectionAt section: Int
     ) -> CGFloat {
         0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView,
+                        didSelectItemAt indexPath: IndexPath) {
+        let videoLauncher = VideoLauncher()
+        videoLauncher.showVideoPlayer()
     }
 }
 

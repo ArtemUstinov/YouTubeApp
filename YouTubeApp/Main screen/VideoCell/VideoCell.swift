@@ -70,9 +70,11 @@ class VideoCell: BaseCell {
                 
                 let numberFormatter = NumberFormatter()
                 numberFormatter.numberStyle = .decimal
-                let number = numberFormatter.string(from: numberOfViews)
+                let number = numberFormatter.string(from: NSNumber(value: numberOfViews))
                 let text =
-                    "\(chanelName) • \(number ?? "") • \(video?.uploadDate ?? "")"
+//                    "\(chanelName) • \(number ?? "") • \(video?.uploadDate ?? "")"
+                "\(chanelName) • \(number ?? "") • 2 years ago"
+
                 subtitleTextView.text = text
             }
             

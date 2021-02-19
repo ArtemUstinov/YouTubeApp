@@ -14,6 +14,7 @@
 		AC395E3125DFDF87007438F8 /* TrendingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC395E3025DFDF87007438F8 /* TrendingCell.swift */; };
 		AC395E3425DFEF9C007438F8 /* SubcriptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC395E3325DFEF9C007438F8 /* SubcriptionCell.swift */; };
 		AC4A73A925DC563D0053409D /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4A73A825DC563D0053409D /* NetworkManager.swift */; };
+		AC4A8CDF25E014A000C77333 /* VideoLauncher.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4A8CDE25E014A000C77333 /* VideoLauncher.swift */; };
 		AC81695425DFB25E00971B6F /* FeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC81695325DFB25E00971B6F /* FeedCell.swift */; };
 		AC8FB3E525DD2C5200F7B795 /* SettingsLauncher.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC8FB3E425DD2C5200F7B795 /* SettingsLauncher.swift */; };
 		AC8FB3EB25DD5BE600F7B795 /* SettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC8FB3EA25DD5BE600F7B795 /* SettingsCell.swift */; };
@@ -39,6 +40,7 @@
 		AC395E3025DFDF87007438F8 /* TrendingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingCell.swift; sourceTree = "<group>"; };
 		AC395E3325DFEF9C007438F8 /* SubcriptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubcriptionCell.swift; sourceTree = "<group>"; };
 		AC4A73A825DC563D0053409D /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		AC4A8CDE25E014A000C77333 /* VideoLauncher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoLauncher.swift; sourceTree = "<group>"; };
 		AC81695325DFB25E00971B6F /* FeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCell.swift; sourceTree = "<group>"; };
 		AC8FB3E425DD2C5200F7B795 /* SettingsLauncher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsLauncher.swift; sourceTree = "<group>"; };
 		AC8FB3EA25DD5BE600F7B795 /* SettingsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCell.swift; sourceTree = "<group>"; };
@@ -215,6 +217,7 @@
 				AC2E7BA025D9314900F8D9F3 /* MenuBar */,
 				ACFBB6F425B4E156008FFB70 /* VideoCell */,
 				AC8FB3E725DD5BC300F7B795 /* Settings screen */,
+				AC4A8CDE25E014A000C77333 /* VideoLauncher.swift */,
 			);
 			path = "Main screen";
 			sourceTree = "<group>";
@@ -305,6 +308,7 @@
 				AC2E7BAF25D9503600F8D9F3 /* Channel.swift in Sources */,
 				AC9B4BAE25DC217100714D3F /* CustomImageView.swift in Sources */,
 				ACE1A4D925AEF0D3008806CF /* HomeController.swift in Sources */,
+				AC4A8CDF25E014A000C77333 /* VideoLauncher.swift in Sources */,
 				ACE1A4ED25AF1DE5008806CF /* UIView +.swift in Sources */,
 				AC8FB3EE25DD6F5900F7B795 /* Setting.swift in Sources */,
 				AC395E3125DFDF87007438F8 /* TrendingCell.swift in Sources */,

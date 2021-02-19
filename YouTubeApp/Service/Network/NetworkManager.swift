@@ -12,7 +12,7 @@ class NetworkManager {
     
     enum Api: String {
         case home =
-                "https://s3-us-west-2.amazonaws.com/youtubeassets/home.json"
+                "https://s3-us-west-2.amazonaws.com/youtubeassets/home_num_likes.json"
         case trending =
                 "https://s3-us-west-2.amazonaws.com/youtubeassets/trending.json"
         case subscription =
@@ -29,32 +29,36 @@ class NetworkManager {
             }
             guard let data = data else { return }
             do {
-                let jsonData =
-                    try JSONSerialization.jsonObject(with: data,
-                                                     options: .mutableContainers)
+                let jsonData = try JSONDecoder().decode([Video].self, from: data)
                 
-                var channel = Channel()
-                var video = Video()
-                var videos = [Video]()
-                
-                for dictionary in jsonData as! [[String: AnyObject]] {
-                    
-                    video.title = dictionary["title"] as? String
-                    video.thumbnailImageName =
-                        dictionary["thumbnail_image_name"] as? String
-                    
-                    let dictionaryChannel =
-                        dictionary["channel"] as? [String: AnyObject]
-                    
-                    channel.profileImageName =
-                        dictionaryChannel?["profile_image_name"] as? String
-                    channel.name = dictionaryChannel?["name"] as? String
-                    
-                    video.channel = channel
-                    videos.append(video)
-                }
+//                let jsonData =
+//                    try JSONSerialization.jsonObject(with: data,
+//                                                     options: .mutableContainers)
+//
+//                var channel = Channel()
+//                var video = Video()
+//                var videos = [Video]()
+//
+//                for dictionary in jsonData as! [[String: AnyObject]] {
+//
+//                    video.title = dictionary["title"] as? String
+//                    video.thumbnailImageName =
+//                        dictionary["thumbnail_image_name"] as? String
+//
+//                    video.setValuesForKeysWithDictionary(dictionary)
+//
+//                    let dictionaryChannel =
+//                        dictionary["channel"] as? [String: AnyObject]
+//
+//                    channel.profileImageName =
+//                        dictionaryChannel?["profile_image_name"] as? String
+//                    channel.name = dictionaryChannel?["name"] as? String
+//
+//                    video.channel = channel
+//                    videos.append(video)
+//                }
                 DispatchQueue.main.async {
-                    completion(videos)
+                    completion(jsonData)
                 }
             } catch let error {
                 print(error.localizedDescription)

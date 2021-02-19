@@ -29,6 +29,9 @@ class HomeController: UICollectionViewController {
     private let subscriptionCell = "subscriptionCell"
     private let titles = ["Home", "Trending", "Subscriptions", "Account"]
     
+//    let hidesStatusBar: () -> ()?
+    var feedCell: FeedCell?
+    
     //MARK: - Override methods:
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -166,6 +169,10 @@ class HomeController: UICollectionViewController {
     @objc private func moreHandle() {
         settingsLauncher.showSettings()
     }
+    
+//    override var prefersStatusBarHidden: Bool  {
+//        return true
+//    }
 }
 
 extension HomeController {
