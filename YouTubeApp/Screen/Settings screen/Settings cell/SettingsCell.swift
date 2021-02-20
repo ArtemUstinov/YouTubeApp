@@ -34,6 +34,7 @@ class SettingsCell: BaseCell {
         }
     }
     
+    //MARK: - Override properties:
     override var isHighlighted: Bool {
         didSet {
             backgroundColor = isHighlighted ? .darkGray : .white

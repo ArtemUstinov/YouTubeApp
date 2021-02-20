@@ -19,7 +19,10 @@ class NetworkManager {
                 "https://s3-us-west-2.amazonaws.com/youtubeassets/subscriptions.json"
     }
     
-    func fetchVideo(url: Api, completion: @escaping([Video]) -> Void) {
+    //MARK: - Public methods:
+    func fetchVideo(url: Api,
+                    completion: @escaping([Video]) -> Void) {
+        
         guard let url = URL(string: url.rawValue) else { return }
         
         URLSession.shared.dataTask(with: url) { (data, _, error) in
@@ -29,34 +32,8 @@ class NetworkManager {
             }
             guard let data = data else { return }
             do {
-                let jsonData = try JSONDecoder().decode([Video].self, from: data)
-                
-//                let jsonData =
-//                    try JSONSerialization.jsonObject(with: data,
-//                                                     options: .mutableContainers)
-//
-//                var channel = Channel()
-//                var video = Video()
-//                var videos = [Video]()
-//
-//                for dictionary in jsonData as! [[String: AnyObject]] {
-//
-//                    video.title = dictionary["title"] as? String
-//                    video.thumbnailImageName =
-//                        dictionary["thumbnail_image_name"] as? String
-//
-//                    video.setValuesForKeysWithDictionary(dictionary)
-//
-//                    let dictionaryChannel =
-//                        dictionary["channel"] as? [String: AnyObject]
-//
-//                    channel.profileImageName =
-//                        dictionaryChannel?["profile_image_name"] as? String
-//                    channel.name = dictionaryChannel?["name"] as? String
-//
-//                    video.channel = channel
-//                    videos.append(video)
-//                }
+                let jsonData = try JSONDecoder().decode([Video].self,
+                                                        from: data)
                 DispatchQueue.main.async {
                     completion(jsonData)
                 }
@@ -68,6 +45,7 @@ class NetworkManager {
     
     func fetchDataImage(from urlString: String,
                         completion: @escaping(Data, URLResponse) -> Void) {
+        
         guard let url = URL(string: urlString) else { return }
         
         URLSession.shared.dataTask(with: url) { (data, response, error) in

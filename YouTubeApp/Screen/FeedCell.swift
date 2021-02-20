@@ -10,6 +10,7 @@ import UIKit
 
 class FeedCell: BaseCell {
     
+    //MARK: - UI elements:
     lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         let collectionView =
@@ -20,33 +21,17 @@ class FeedCell: BaseCell {
         return collectionView
     }()
     
-    var videos = [Video]()
+    //MARK: - Properties:
     let networkManager = NetworkManager()
-    
-    var hidesStatusBar: (() -> Void)?
-    
+    var videos = [Video]()
     
     private let cellId = "CellId "
     
+    //MARK: - Override methods:
     override func setupViews() {
         super.setupViews()
-        
         setupCollectionView()
-        
         fetchDataVideo()
-        
-    }
-    
-    func fetchDataVideo() {
-        networkManager.fetchVideo(url: .home) {
-            [weak self] videos in
-            self?.videos = videos
-            self?.collectionView.reloadData()
-        }
-    }
-    
-    private func setupCollectionView() {
-        collectionView.register(VideoCell.self, forCellWithReuseIdentifier: cellId)
     }
     
     override func setupLayouts() {
@@ -56,8 +41,24 @@ class FeedCell: BaseCell {
         addConstraintsWithFormat(format: "V:|[v0]|", views: [collectionView])
     }
     
+    //MARK: - Get data video:
+    func fetchDataVideo() {
+        networkManager.fetchVideo(url: .home) {
+            [weak self] videos in
+            self?.videos = videos
+            self?.collectionView.reloadData()
+        }
+    }
+    
+    //MARK: - Setup CollectionView:
+    private func setupCollectionView() {
+        collectionView.register(VideoCell.self,
+                                forCellWithReuseIdentifier: cellId)
+    }
+    
 }
 
+//MARK: - CollectionViewDelegate, DataSource:
 extension FeedCell: UICollectionViewDataSource, UICollectionViewDelegate {
     
     func collectionView(
@@ -99,6 +100,7 @@ extension FeedCell: UICollectionViewDataSource, UICollectionViewDelegate {
     }
 }
 
+//MARK: - CollectionViewDelegateFlowLayout:
 extension FeedCell: UICollectionViewDelegateFlowLayout {
     func collectionView(
         _ collectionView: UICollectionView,

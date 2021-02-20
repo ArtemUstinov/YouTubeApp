@@ -46,6 +46,7 @@ class MenuBar: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    //MARK: - Setup HorizontalBar:
     private func setupHorizontalBar() {
         let horizontalBarView = UIView()
         horizontalBarView.backgroundColor = UIColor(white: 0.95, alpha: 1)
@@ -93,8 +94,8 @@ extension MenuBar: UICollectionViewDelegate,
     ) -> UICollectionViewCell {
         
         guard let cell =
-            collectionView.dequeueReusableCell(withReuseIdentifier: cellId,
-                                               for: indexPath) as? MenuCell else {
+                collectionView.dequeueReusableCell(withReuseIdentifier: cellId,
+                                                   for: indexPath) as? MenuCell else {
             fatalError("Don't have 'MenuCell'")
         }
         cell.imageView.image =
@@ -105,18 +106,6 @@ extension MenuBar: UICollectionViewDelegate,
     
     func collectionView(_ collectionView: UICollectionView,
                         didSelectItemAt indexPath: IndexPath) {
-//        let x = CGFloat(indexPath.item) * frame.width / 4
-//        print(x)
-//        horizontalBarLeadingAnchorConstraint?.constant = x
-        
-//        UIView.animate(withDuration: 0.75,
-//                       delay: 0,
-//                       usingSpringWithDamping: 1,
-//                       initialSpringVelocity: 1,
-//                       options: .curveEaseOut,
-//                       animations: {
-//                        self.layoutIfNeeded()
-//                       }, completion: nil)
         
         homeController?.scrollToMenuIndex(indexPath.item)
     }

@@ -16,6 +16,7 @@ class CustomImageViewModel {
     //MARK: - Public methods:
     func fetchImageData(from urlString: String,
                         completion: @escaping(Data) -> Void) {
+        
         networkManager.fetchDataImage(from: urlString) {
             [weak self] (imageData, response) in
             completion(imageData)
@@ -24,6 +25,7 @@ class CustomImageViewModel {
     }
     
     func getCachedImage(from urlString: String) -> UIImage? {
+        
         guard let url = URL(string: urlString) else { return nil }
         let urlRequest = URLRequest(url: url)
         if let cachedResponse =
@@ -36,6 +38,7 @@ class CustomImageViewModel {
     //MARK: - Private methods:
     private func saveImageToCache(from data: Data,
                                   and response: URLResponse) {
+        
         guard let urlResponse = response.url else { return }
         let urlRequest = URLRequest(url: urlResponse)
         let cachedResponse = CachedURLResponse(response: response,

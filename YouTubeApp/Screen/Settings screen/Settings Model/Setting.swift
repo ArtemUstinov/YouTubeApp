@@ -10,9 +10,11 @@ import Foundation
 
 class Setting: NSObject {
     
+    //MARK: - Properties:
     var name: SettingName
     var imageName: String
     
+    //MARK: - Initializers:
     init(name: SettingName, imageName: String) {
         self.name = name
         self.imageName = imageName

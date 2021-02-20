@@ -14,9 +14,4 @@ struct Channel: Decodable {
         case name
         case profileImageName = "profile_image_name"
     }
-    
-//    init(name: String? = nil, profileImageName: String? = nil) {
-//        self.name = name
-//        self.profileImageName = profileImageName
-//    }
 }

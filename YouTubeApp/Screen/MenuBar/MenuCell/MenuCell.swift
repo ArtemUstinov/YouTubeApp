@@ -10,6 +10,7 @@ import UIKit
 
 class MenuCell: BaseCell {
     
+    //MARK: - UI elements:
     let imageView: UIImageView = {
         let image = UIImageView()
         image.tintColor = UIColor.getRgb(red: 91,
@@ -18,6 +19,7 @@ class MenuCell: BaseCell {
         return image
     }()
     
+    //MARK: - Override methods:
     override var isSelected: Bool {
         didSet {
             imageView.tintColor =

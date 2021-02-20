@@ -24,25 +24,20 @@ class HomeController: UICollectionViewController {
         return launcher
     }()
     
-    private let cellId = "Cell id"
-    private let trendingCell = "trendingCell"
-    private let subscriptionCell = "subscriptionCell"
+    private let homeCellId = "HomeCellId"
+    private let cellOfScreens = ["trendingCell", "subscriptionCell"]
     private let titles = ["Home", "Trending", "Subscriptions", "Account"]
     
-//    let hidesStatusBar: () -> ()?
-    var feedCell: FeedCell?
+    private var feedCell: FeedCell?
     
     //MARK: - Override methods:
     override func viewDidLoad() {
         super.viewDidLoad()
          
         setupNavigationTitle()
-        
         setupCollectionView()
-        
         setupMenuBar()
         setupNavBar()
-        
     }
     
     //MARK: - Setup NavigationTitle:
@@ -52,9 +47,7 @@ class HomeController: UICollectionViewController {
                                   y: 0,
                                   width: view.frame.width - 32,
                                   height: view.frame.height))
-        
-        
-        //        navigationItem.title = "  Home"
+                
         navigationController?.navigationBar.isTranslucent = false
         navTitleLabel.text = "  Home"
         navTitleLabel.textColor = .white
@@ -115,9 +108,9 @@ class HomeController: UICollectionViewController {
         }
         collectionView.backgroundColor = .white
         
-        collectionView.register(FeedCell.self, forCellWithReuseIdentifier: cellId)
-        collectionView.register(TrendingCell.self, forCellWithReuseIdentifier: trendingCell)
-        collectionView.register(SubscriptionCell.self, forCellWithReuseIdentifier: subscriptionCell)
+        collectionView.register(FeedCell.self, forCellWithReuseIdentifier: homeCellId)
+        collectionView.register(TrendingCell.self, forCellWithReuseIdentifier: cellOfScreens.first ?? "")
+        collectionView.register(SubscriptionCell.self, forCellWithReuseIdentifier: cellOfScreens.last ?? "")
 
         
         collectionView.contentInset = UIEdgeInsets(top: 50,
@@ -128,7 +121,6 @@ class HomeController: UICollectionViewController {
                                                             left: 0,
                                                             bottom: 0,
                                                             right: 0)
-        
         collectionView.isPagingEnabled = true
     }
     
@@ -169,10 +161,6 @@ class HomeController: UICollectionViewController {
     @objc private func moreHandle() {
         settingsLauncher.showSettings()
     }
-    
-//    override var prefersStatusBarHidden: Bool  {
-//        return true
-//    }
 }
 
 extension HomeController {
@@ -193,16 +181,18 @@ extension HomeController {
         let identifier: String
         
         if indexPath.item == 0 {
-            identifier = cellId
+            identifier = homeCellId
         } else if indexPath.item == 1 {
-            identifier = trendingCell
+            identifier = cellOfScreens.first ?? ""
         } else {
-            identifier = subscriptionCell
+            identifier = cellOfScreens.last ?? ""
         }
- 
+        
         let cell =
-            collectionView.dequeueReusableCell(withReuseIdentifier: identifier,
-                                               for: indexPath)
+            collectionView.dequeueReusableCell(
+                withReuseIdentifier: identifier,
+                for: indexPath
+            )
         
         return cell
     }

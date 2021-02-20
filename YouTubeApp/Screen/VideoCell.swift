@@ -13,8 +13,6 @@ class VideoCell: BaseCell {
     //MARK: - UI elements:
     let thumbnailImageView: CustomImageView = {
         let imageView = CustomImageView()
-        //        imageView.backgroundColor = .blue
-//        imageView.image = UIImage(named: "jackson")
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
         return imageView
@@ -23,7 +21,7 @@ class VideoCell: BaseCell {
     let userProfileImageView: CustomImageView = {
         let imageView = CustomImageView()
         //        imageView.backgroundColor = .green
-//        imageView.image = UIImage(named: "jacksonMini")
+        //        imageView.image = UIImage(named: "jacksonMini")
         imageView.contentMode = .scaleAspectFill
         imageView.layer.cornerRadius = 22
         imageView.layer.masksToBounds = true
@@ -61,20 +59,26 @@ class VideoCell: BaseCell {
     var video: Video? {
         didSet {
             titleLabel.text = video?.title
-
-            thumbnailImageView.loadImage(from: video?.thumbnailImageName ?? "")
-            userProfileImageView.loadImage(from: video?.channel?.profileImageName ?? "")
+            
+            thumbnailImageView.loadImage(
+                from: video?.thumbnailImageName ?? ""
+            )
+            userProfileImageView.loadImage(
+                from: video?.channel?.profileImageName ?? ""
+            )
             
             if let chanelName = video?.channel?.name,
                let numberOfViews = video?.numberOfViews {
                 
                 let numberFormatter = NumberFormatter()
                 numberFormatter.numberStyle = .decimal
-                let number = numberFormatter.string(from: NSNumber(value: numberOfViews))
+                let number =
+                    numberFormatter.string(
+                        from: NSNumber(value: numberOfViews)
+                    )
                 let text =
-//                    "\(chanelName) • \(number ?? "") • \(video?.uploadDate ?? "")"
-                "\(chanelName) • \(number ?? "") • 2 years ago"
-
+                    "\(chanelName) • \(number ?? "") • 2 years ago"
+                
                 subtitleTextView.text = text
             }
             
@@ -105,8 +109,8 @@ class VideoCell: BaseCell {
         super.prepareForReuse()
         thumbnailImageView.image = nil
         userProfileImageView.image = nil
-//        titleLabel.text = nil
-//        subtitleTextView.text = nil
+        //        titleLabel.text = nil
+        //        subtitleTextView.text = nil
         print("!")
     }
     
@@ -149,14 +153,7 @@ class VideoCell: BaseCell {
             subtitleTextView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor,
                                                   constant: 4)
         ])
-//        titleLabelConstraint = NSLayoutConstraint(item: titleLabel,
-//                                                  attribute: .height,
-//                                                  relatedBy: .equal,
-//                                                  toItem: self,
-//                                                  attribute: .height,
-//                                                  multiplier: 0,
-//                                                  constant: 20)
-//        addConstraint(titleLabelConstraint!)
+        
         addConstraintsWithFormat(format: "V:[v0(30)]",
                                  views: [subtitleTextView])
     }

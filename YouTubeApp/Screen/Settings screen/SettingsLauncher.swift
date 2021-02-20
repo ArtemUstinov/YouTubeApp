@@ -89,16 +89,6 @@ class SettingsLauncher: NSObject {
     
     //MARK: - @objs methods:
     @objc private func handleDismiss(setting: Setting) {
-        //        UIView.animate(withDuration: 0.5) {
-        //            self.blackView.alpha = 0
-        //            if let window = UIApplication.shared.windows.filter({$0.isKeyWindow}).first {
-        //                self.collectionView.frame =
-        //                    CGRect(x: 0,
-        //                           y: window.frame.height,
-        //                           width: self.collectionView.frame.width,
-        //                           height: self.collectionView.frame.height)
-        //            }
-        //        }
         
         UIView.animate(withDuration: 0.5,
                        delay: 0,
@@ -108,7 +98,8 @@ class SettingsLauncher: NSObject {
             
             self.blackView.alpha = 0
             
-            if let window = UIApplication.shared.windows.filter({$0.isKeyWindow}).first {
+            if let window =
+                UIApplication.shared.windows.filter({$0.isKeyWindow}).first {
                 self.collectionView.frame =
                     CGRect(x: 0,
                            y: window.frame.height,
@@ -158,6 +149,7 @@ extension SettingsLauncher: UICollectionViewDataSource,
 
 //MARK: - CollectionViewDelegateFlowLayout:
 extension SettingsLauncher: UICollectionViewDelegateFlowLayout {
+    
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {

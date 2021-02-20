@@ -14,10 +14,11 @@ class CustomImageView: UIImageView {
     
     func loadImage(from urlString: String) {
         
-//        if let cachedImage = customImageViewModel.getCachedImage(from: urlString) {
-//            image = cachedImage
-//            return
-//        }
+        if let cachedImage =
+            customImageViewModel.getCachedImage(from: urlString) {
+            image = cachedImage
+            return
+        }
         
         customImageViewModel.fetchImageData(from: urlString) {
             [weak self] imageData in
